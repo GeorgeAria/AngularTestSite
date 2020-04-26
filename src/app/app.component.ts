@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'pm-root',
+  //template should probably not be used. templateUrl may be more useful here
   template: `
     <nav class='navbar navbar-expand navbar-light bg-light'>
         <a class='navbar-brand'>{{pageTitle}}</a>
