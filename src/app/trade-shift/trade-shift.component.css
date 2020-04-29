@@ -1,3 +1,29 @@
-.card{
-    width:400px;
+/*
+-Flex container is the container that holds our data modules.
+
+-display will make the container "flexible".
+-flex-direction dictates whether our modules will be in a row or a column.
+-flex-wrap determines whether our modules will continue to another row
+or if they will adjust in size to fit in the same row. Assigning this
+value to wrap will perform the former.
+-justify-content will determine the position of the container.
+
+
+*/
+.flex-container{
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-container > div{
+    width: 100px;
+    background-color: dodgerblue;
+    margin: 10px;
+    line-height: 75px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
 }
