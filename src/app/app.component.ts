@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'pm-root',
-  //template should probably not be used. templateUrl may be more useful here
-  template: `
+   //template should probably not be used. templateUrl may be more useful here
+ /*template: `
     <nav class='navbar navbar-expand navbar-dark bg-dark'>
         <a class='navbar-brand'>{{pageTitle}}</a>
         <ul class='nav nav-pills'>
@@ -15,7 +15,8 @@ import { Component } from '@angular/core';
     <div class='container'>
       <router-outlet></router-outlet>
     </div>
-    `,
+    `,*/
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
