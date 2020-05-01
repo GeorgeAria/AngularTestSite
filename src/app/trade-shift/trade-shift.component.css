@@ -37,8 +37,13 @@ value to wrap will perform the former.
     font-weight: normal;*/
 }
 
+/*
+-transition allows us to change the color of the background-color (or other values) over a given duration.
+-It is set to 0.3 seconds so that the color of the background goes from gray to dodgerblue in 0.3 seconds.
+*/
 .week-name{
     background-color: gray;
+    transition: 0.3s;
 }
 
 .week-name:hover{
