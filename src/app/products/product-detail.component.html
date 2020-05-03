@@ -1,3 +1,8 @@
+
+<!--
+  The "ngIf" checks for the existence of the product object.
+  This ensures that a product will not show up due to asynchronous operations.
+-->
 <div class='card'
      *ngIf='product'>
   <div class='card-header'>
