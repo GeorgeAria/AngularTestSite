@@ -1,3 +1,5 @@
+//FormsModule is imported so that the "ngModule" Angular directive can be used
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarComponent } from './star.component';
