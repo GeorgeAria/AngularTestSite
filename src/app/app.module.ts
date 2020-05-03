@@ -1,3 +1,6 @@
+//"BrowserModule" allows us to use the ngIf and ngFor structural directives in our HTML templates.
+//"HttpClientModule" allows us to use the "HttpClient" service in our "product.service.ts" file (or any other class).
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,7 +11,13 @@ import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
 import { TradeShiftModule } from './trade-shift/trade-shift.module';
 
+//"@NgModule" is a decorator that tells Angular that this is an Angular module.
+
 @NgModule({
+
+//"declarations" allows us to use the values within the Components that we import.
+//For example, we could use the "selector" value from another component and use it's HTML template.
+
   declarations: [
     AppComponent,
     WelcomeComponent 
