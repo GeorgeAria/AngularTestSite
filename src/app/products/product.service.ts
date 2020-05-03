@@ -1,3 +1,9 @@
+//This class is known as a "service".
+//A service is set up to be a single instance by Angular, which can be called upon by a class as a dependency.
+//This is called "Dependency Injection".
+//This class allows us to access our JSON data from our api/products folder.
+//In production, it would be used to get data from a backend service.
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -5,17 +11,30 @@ import { catchError, tap, map } from 'rxjs/operators';
 
 import { IProduct } from './product';
 
+//"@Injectable" decorator tell Angular that this is a service.
+
 @Injectable({
+  //By setting the "providedIn" value to "root", we make this available to the root application injector.
+  //This means that this service can be used throughout the application and not just the product-list component.
+
   providedIn: 'root'
 })
 export class ProductService {
   // If using Stackblitz, replace the url with this line
   // because Stackblitz can't find the api folder.
   // private productUrl = 'assets/products/products.json';
+
+  //"productUrl" is the url to the data. This can be an API (web url) if you have one.
+
   private productUrl = 'api/products/products.json';
+
+  //The constructor initializes an "HTTPClient" to help it communicate with a web server.
 
   constructor(private http: HttpClient) { }
 
+  //"getProducts" will return data from a JSON file.
+  //It will only be called when it is subscribed to, which is shown in the "product-list.component.ts" file.
+  
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productUrl)
       .pipe(
@@ -23,7 +42,7 @@ export class ProductService {
         catchError(this.handleError)
       );
   }
-
+ 
   getProduct(id: number): Observable<IProduct | undefined> {
     return this.getProducts()
       .pipe(
