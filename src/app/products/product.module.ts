@@ -15,6 +15,10 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
+      
+      //Parameters can be used to view a specific object/product.
+      //In the "path" variable, a parameter value is preceded by "/:". Multiple parameters are defined this way.
+
       {
         path: 'products/:id',
         canActivate: [ProductDetailGuard],
