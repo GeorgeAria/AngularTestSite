@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { TradeShiftComponent } from './trade-shift.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule(
     {
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
                     { 
                         path: 'tradeShift', component: TradeShiftComponent 
                     }
-                ])
+                ]),
+            SharedModule
         ]
     }
 )
