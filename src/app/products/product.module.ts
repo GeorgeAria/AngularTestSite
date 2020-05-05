@@ -13,14 +13,20 @@ import { SharedModule } from '../shared/shared.module';
     ConvertToSpacesPipe,
   ],
   imports: [
+    //"RouterModule.forChild()" is used since we are calling RouterModule from a feature array.
+    
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
-      
+
       //Parameters can be used to view a specific object/product.
       //In the "path" variable, a parameter value is preceded by "/:". Multiple parameters are defined this way.
 
       {
         path: 'products/:id',
+
+        //"ProductDetailGuard" is used to guard the product detail route. It is added after "canActivate:".
+        //"canActivate" is the method from the "product-detail.guard.ts" file.
+
         canActivate: [ProductDetailGuard],
         component: ProductDetailComponent
       }
