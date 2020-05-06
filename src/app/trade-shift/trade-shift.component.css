@@ -43,12 +43,10 @@ value to wrap will perform the former.
 */
 .week-name{
     background-color: gray;
-    transition: 0.3s;
+    /*transition: 0.3s;*/
 }
 
-.week-name:hover{
-    background-color:dodgerblue;
-}
+
 /*
 -display set to block allows this element to take up the whole width
 -height allows us to take up the whole height, making this anchortag clickable
@@ -56,4 +54,23 @@ value to wrap will perform the former.
 .week-name a{
     display: block;
     height: 100%;
+}
+
+.calendar-days{
+    transition: 0.3s;
+}
+
+.calendar-days:hover{
+    background-color:dodgerblue;
+}
+
+/*
+-text-decoration prevents an underline from appearing in the text when you hover over it
+*/
+
+.calendar-days a{
+    display: block;
+    height: 100%;
+    color: black;
+    text-decoration: none;
 }
