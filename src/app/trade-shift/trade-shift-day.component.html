@@ -1,0 +1,20 @@
+<div *ngIf = 'filteredPosts && users && filteredPosts.length && users.length'>
+    <div class='card' *ngFor='let post of filteredPosts'>
+        <div class='card-header'>
+            <img [src]='returnUserInfo(post.userID, 3)'
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+
+            {{returnUserInfo(post.userID, 1)}}
+
+            <a [routerLink]="['/tradeShift', dayNumber, post.postID]">
+                <button class='btn btn-primary'>
+                    Comments
+                </button>
+            </a>
+        </div>
+        <div class = 'card-body'>
+            {{post.postComment}}
+        </div>
+    </div>
+</div>
