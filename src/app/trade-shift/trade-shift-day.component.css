@@ -1,0 +1,10 @@
+.card-header{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.btn{
+    float: right;
+    height: 45px;
+    width: 110px;
+}
