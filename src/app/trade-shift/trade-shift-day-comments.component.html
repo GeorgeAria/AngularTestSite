@@ -1,0 +1,29 @@
+<div *ngIf = 'post && users && users.length'>
+    <div class='card'>
+        <div class='card-header'>
+            <img [src]='returnUserInfo(post.userID, 3)'
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+
+            {{returnUserInfo(post.userID, 1)}}
+        </div>
+        <div class = 'card-body'>
+            {{post.postComment}}
+        </div>
+    </div>
+</div>
+<h1>Comments</h1>
+<div *ngIf = 'filteredComments && filteredComments.length && users && users.length'>
+    <div class='card' *ngFor = 'let comment of filteredComments'>
+        <div class='card-header'>
+            <img [src]='returnUserInfo(comment.userID, 3)'
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+
+            {{returnUserInfo(comment.userID, 1)}}
+        </div>
+        <div class = 'card-body'>
+            {{comment.comment}}
+        </div>
+    </div>
+</div>
