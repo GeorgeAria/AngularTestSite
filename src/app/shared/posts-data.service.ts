@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Posts } from './posts-data';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,14 @@ import { catchError, tap } from 'rxjs/operators';
 
 export class PostsDataService 
 {
-  private usersUrl = 'assets/products/posts.json';
+  private postsUrl = 'assets/products/posts.json';
 
   constructor(private http: HttpClient) { }
 
   getPosts(): Observable<Posts[]> {
 
     console.log("Testing 1,2,3 ...");
-    return this.http.get<Posts[]>(this.usersUrl)
+    return this.http.get<Posts[]>(this.postsUrl)
 
     //.pipe allows us to string together functional operators into a chain.
 
@@ -27,6 +27,13 @@ export class PostsDataService
 
         tap(data => console.log('All: ' + JSON.stringify(data))),
         catchError(this.handleError)
+      );
+  }
+
+  getPost(id: number): Observable<Posts | undefined> {
+    return this.getPosts()
+      .pipe(
+        map((posts: Posts[]) => posts.find(post => post.postID === id))
       );
   }
 
