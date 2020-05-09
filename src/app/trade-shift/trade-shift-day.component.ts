@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './trade-shift-day.component.html',
   styleUrls: ['./trade-shift-day.component.css']
 })
+
 export class TradeShiftDayComponent implements OnInit 
 {
   imageWidth = 55;
@@ -26,9 +27,9 @@ export class TradeShiftDayComponent implements OnInit
               private route: ActivatedRoute) { }
 
 
-  performFilter(filterBy: number): Posts[] 
+  performFilter(): Posts[] 
   {
-    return this.posts.filter((post: Posts) => post.dayNumber.valueOf() === this.dayNumber);
+    return this.posts.filter((post: Posts) => post.dayNumber === this.dayNumber);
   }
 
   returnUserInfo(userId: number, choice: number): string
@@ -67,7 +68,7 @@ export class TradeShiftDayComponent implements OnInit
 
           const id = +param;
           this.dayNumber = id;
-          this.filteredPosts = this.performFilter(this.dayNumber);
+          this.filteredPosts = this.performFilter();
         }
       },
 
