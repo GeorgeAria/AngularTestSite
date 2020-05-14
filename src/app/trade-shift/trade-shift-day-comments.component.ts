@@ -4,7 +4,7 @@ import { Comments } from '../shared/comments-data';
 import { UserDataService } from '../shared/user-data.service';
 import { Posts } from '../shared/posts-data';
 import { PostsDataService } from '../shared/posts-data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommentsDataService } from '../shared/comments-data.service';
 
 @Component({
@@ -31,12 +31,15 @@ export class TradeShiftDayCommentsComponent implements OnInit
   constructor(private userDataService: UserDataService, 
               private postsDataService: PostsDataService,
               private commentsDataService:CommentsDataService,
+              private router: Router,
               private route: ActivatedRoute) { }
 
   performFilter(): Comments[] 
   {
     return this.comments.filter((comment: Comments) => comment.postID === this.postID);
   }
+
+
 
   getPost(id: number) {
     this.postsDataService.getPost(id).subscribe({
@@ -62,6 +65,10 @@ export class TradeShiftDayCommentsComponent implements OnInit
         return this.users[i].imageUrl;
       }
     }
+  }
+
+  onBack(): void {
+    this.router.navigate(['/tradeShift/'.concat(this.route.snapshot.paramMap.get('id'))]);
   }
 
   ngOnInit(): void 
