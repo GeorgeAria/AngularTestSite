@@ -3,7 +3,7 @@ import { UserDataService } from '../shared/user-data.service';
 import { PostsDataService } from '../shared/posts-data.service';
 import { User } from '../shared/user-data';
 import { Posts } from '../shared/posts-data';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   templateUrl: './trade-shift-day.component.html',
@@ -21,9 +21,12 @@ export class TradeShiftDayComponent implements OnInit
   users: User[] = [];
   filteredPosts: Posts[] = [];
   posts: Posts[] = [];
+
+  showNoPostScreen = false;
   
   constructor(private userDataService: UserDataService, 
               private postsDataService: PostsDataService,
+              private router: Router,
               private route: ActivatedRoute) { }
 
 
@@ -51,6 +54,10 @@ export class TradeShiftDayComponent implements OnInit
     }
   }
 
+  onBack(): void {
+    this.router.navigate(['/tradeShift']);
+  }
+
   ngOnInit(): void 
   {
     this.postsDataService.getPosts().subscribe({
@@ -69,6 +76,11 @@ export class TradeShiftDayComponent implements OnInit
           const id = +param;
           this.dayNumber = id;
           this.filteredPosts = this.performFilter();
+        }
+
+        if(this.filteredPosts.length === 0)
+        {
+          this.showNoPostScreen = true;
         }
       },
 
