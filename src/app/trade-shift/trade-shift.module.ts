@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { TradeShiftComponent } from './trade-shift.component';
 import { TradeShiftDayComponent } from './trade-shift-day.component';
 import { TradeShiftDayCommentsComponent } from './trade-shift-day-comments.component';
+import { ChildCommentsComponent } from './child-comments.component';
 
 @NgModule(
     {
@@ -11,7 +12,8 @@ import { TradeShiftDayCommentsComponent } from './trade-shift-day-comments.compo
         [
             TradeShiftComponent,
             TradeShiftDayComponent,
-            TradeShiftDayCommentsComponent
+            TradeShiftDayCommentsComponent,
+            ChildCommentsComponent
         ],
         imports:
         [
