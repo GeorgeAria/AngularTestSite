@@ -2,6 +2,6 @@ export interface Comments
 {
     commentID: number;
     postID: number;
-    userID: string;
+    userID: number;
     comment: string;
 }
