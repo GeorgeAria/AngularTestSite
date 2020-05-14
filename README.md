@@ -1,6 +1,10 @@
 # AngularTestSite
 My first Angular site.
 
+NOTE: The month's number (e.g. January = 1) is not stored in the post.json file (or other files for that matter.)
+This should be added eventually when there are weeks to trade within 2 months.
+For now, the month is hard-coded.
+
 ----------------------------------------------------------------------------------------------------
 
 To generate a new Angular application, execute the following command:
