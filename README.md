@@ -42,7 +42,7 @@ The files preceded with ts (tsconfig.app.json, tsconfig.json, tsconfig.spec.json
 (o) If it exists, the ".editorconfig" file defines standard setting for an editor (like VS Code).
 (p) The ".gitignore" file defines which files to ignore for checking into Git. The "node_modules" folder is typically in this list.
 (q) The "package.json" file defines all the libraries that should be installed for this application to work.
-(r) The "angular.json" file if the CLI configuration file. It is used to configure how the CLI generates code and works with certain files. Things like assets and css files can be defined here.
+(r) The "angular.json" file is the Angular CLI configuration file. It is used to configure how the CLI generates code and works with certain files. Things like assets and css files can be defined here.
 
 ----------------------------------------------------------------------------------------------------
 
