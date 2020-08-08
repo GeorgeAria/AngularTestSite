@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { CalendarData } from './calendar-data';
 import { catchError, tap } from 'rxjs/operators';
@@ -17,7 +17,10 @@ export class CalendarDataService {
   getCalendarInfo(): Observable<CalendarData[]> {
 
     console.log("Testing 1,2,3 ...");
-    return this.http.get<CalendarData[]>("https://aspnetwebapiwithmongodb.herokuapp.com/calendar")
+
+    const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+
+    return this.http.get<CalendarData[]>("https://aspnetwebapiwithmongodb.herokuapp.com/calendar", {'headers': headers})
 
     // .pipe allows us to string together functional operators into a chain.
 
