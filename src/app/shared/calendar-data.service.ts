@@ -18,7 +18,9 @@ export class CalendarDataService {
 
     console.log("Testing 1,2,3 ...");
 
-    const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+    const headers = new HttpHeaders()
+    .set('content-type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*');
 
     return this.http.get<CalendarData[]>("https://aspnetwebapiwithmongodb.herokuapp.com/calendar", {'headers': headers})
 
