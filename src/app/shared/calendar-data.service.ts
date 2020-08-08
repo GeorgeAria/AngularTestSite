@@ -17,7 +17,7 @@ export class CalendarDataService {
   getCalendarInfo(): Observable<CalendarData[]> {
 
     console.log("Testing 1,2,3 ...");
-    return this.http.get<CalendarData[]>(process.env.CALENDAR)
+    return this.http.get<CalendarData[]>("https://aspnetwebapiwithmongodb.herokuapp.com/calendar")
 
     // .pipe allows us to string together functional operators into a chain.
 
