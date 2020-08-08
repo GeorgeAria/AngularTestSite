@@ -17,14 +17,12 @@ export class CalendarDataService {
   getCalendarInfo(): Observable<CalendarData[]> {
 
     console.log("Testing 1,2,3 ...");
-    return this.http.get<CalendarData[]>(this.usersUrl)
+    return this.http.get<CalendarData[]>(process.env.CALENDAR)
 
-    //.pipe allows us to string together functional operators into a chain.
+    // .pipe allows us to string together functional operators into a chain.
 
-      .pipe(
-        
-    //.tap allows us to perform actions on data, but it can not modify it in any way.
-
+      .pipe( 
+    // .tap allows us to perform actions on data, but it can not modify it in any way.
         tap(data => console.log('All: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
