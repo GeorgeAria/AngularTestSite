@@ -18,6 +18,13 @@ export class CalendarDataService {
 
     console.log("Testing 1,2,3 ...");
 
+    console.log(this.http.get<CalendarData[]>("https://aspnetwebapiwithmongodb.herokuapp.com/calendar"));
+
+    console.log("FFFF");
+
+    console.log(this.http.get<CalendarData[]>("https://aspnetwebapiwithmongodb.herokuapp.com/calendar")
+      .pipe(tap(data => console.log(data))));
+
     return this.http.get<CalendarData[]>("https://aspnetwebapiwithmongodb.herokuapp.com/calendar")
 
     // .pipe allows us to string together functional operators into a chain.
